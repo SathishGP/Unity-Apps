@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class FollowPlayer : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public GameObject player;
+    private Vector3 offset = new Vector3(0, 7, -17);
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // The code will be here
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        // Adding offset to the camera to adjust height
+        transform.position = player.transform.position + offset;
     }
 }
